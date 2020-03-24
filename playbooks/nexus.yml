@@ -3,6 +3,7 @@
   hosts: nexus
   become: yes
 
+#TODO: Install RSync
   vars:
     nexus_timezone: 'Canada/Eastern'
     nexus_admin_password: "Potato1234"
