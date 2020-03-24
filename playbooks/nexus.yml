@@ -6,6 +6,7 @@
 #TODO: Install RSync
   vars:
     nexus_timezone: 'Canada/Eastern'
+    current_nexus_admin_password: "Potato1234"
     nexus_admin_password: "Potato1234"
     nexus_public_hostname: 'nexus.vm'
     httpd_setup_enable: true
