@@ -5,7 +5,7 @@
 
   vars:
     nexus_timezone: 'Canada/Eastern'
-    nexus_admin_password: "{{ vault_nexus_admin_password }}"
+    nexus_admin_password: "Potato1234"
     nexus_public_hostname: 'nexus.vm'
     httpd_setup_enable: true
     httpd_ssl_certificate_file: "{{ vault_httpd_ssl_certificate_file }}"
