@@ -109,7 +109,7 @@
       - name: Windows
         version_policy: release
     nexus_repos_docker_hosted:
-      - name: docker-hosted
+      - name: docker-self-rolled
         http_port: "{{ nexus_docker_hosted_port }}"
         v1_enabled: True
       - name: docker-SAC
