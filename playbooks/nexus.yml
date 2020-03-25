@@ -26,6 +26,7 @@
     nexus_config_pypi: true
     nexus_config_raw: true
     nexus_config_docker: true
+    nexus_docker_hosted_port: 8082
     nexus_privileges:
       - name: all-repos-read
         description: 'Read & Browse access to all repos'
@@ -66,9 +67,6 @@
         taskProperties:
           blobstoreName: 'company-artifacts'
     nexus_repos_maven_proxy:
-      - name: central
-        remote_url: 'https://repo1.maven.org/maven2/'
-        layout_policy: permissive
       - name: jboss
         remote_url: 'https://repository.jboss.org/nexus/content/groups/public-jboss/'
       - name: vaadin-addons
