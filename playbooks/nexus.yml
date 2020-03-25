@@ -23,6 +23,8 @@
     nexus_delete_default_repos: true
     nexus_nuget_api_key_realm: true
     nexus_config_nuget: true
+    nexus_config_pypi: true
+    nexus_config_raw: true
     nexus_privileges:
       - name: all-repos-read
         description: 'Read & Browse access to all repos'
@@ -103,7 +105,16 @@
         strict_content_validation: true
       - name: Potato
         strict_content_validation: true
-
+    nexus_repos_raw_hosted:
+      - name: Windows
+        version_policy: release
+    nexus_repos_docker_hosted:
+      - name: docker-hosted
+        http_port: "{{ nexus_docker_hosted_port }}"
+        v1_enabled: True
+      - name: docker-SAC
+        http_port: "{{ nexus_docker_hosted_port }}"
+        v1_enabled: True
   roles:
     
     - { role: geerlingguy.java, java_packages: java-1.8.0-openjdk  }
