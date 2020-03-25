@@ -83,10 +83,20 @@
           - jboss
           - vaadin-addons
           - jaspersoft
-
-
+    nexus_repos_yum_hosted:
+      - name: RHEL7
+        repodata_depth: 1
+        strict_content_validation: true
+        layout_policy: strict
+      - name: RHEL8
+        repodata_depth: 1
+        strict_content_validation: true
+        layout_policy: strict
+      - name: RHEL6
+        repodata_depth: 1
+        strict_content_validation: true
+        layout_policy: strict
   roles:
-    
     
     - { role: geerlingguy.java, java_packages: java-1.8.0-openjdk  }
     # Debian/Ubuntu only
