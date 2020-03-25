@@ -66,6 +66,9 @@
         taskProperties:
           blobstoreName: 'company-artifacts'
     nexus_repos_maven_proxy:
+      - name: central
+        remote_url: 'https://repo1.maven.org/maven2/'
+        layout_policy: permissive
       - name: jboss
         remote_url: 'https://repository.jboss.org/nexus/content/groups/public-jboss/'
       - name: vaadin-addons
