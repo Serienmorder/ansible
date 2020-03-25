@@ -26,7 +26,6 @@
     nexus_config_pypi: true
     nexus_config_raw: true
     nexus_config_docker: true
-    nexus_docker_hosted_port: 8082
     nexus_privileges:
       - name: all-repos-read
         description: 'Read & Browse access to all repos'
@@ -109,10 +108,10 @@
         version_policy: release
     nexus_repos_docker_hosted:
       - name: docker-self-rolled
-        http_port: "{{ nexus_docker_hosted_port }}"
+        http_port: 8083
         v1_enabled: True
       - name: docker-SAC
-        http_port: "{{ nexus_docker_hosted_port }}"
+        http_port: 8082
         v1_enabled: True
   roles:
     
