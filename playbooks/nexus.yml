@@ -78,10 +78,10 @@
       - name: central
         remote_url: 'https://repo1.maven.org/maven2/'
         layout_policy: permissive
-      - name: alfresco
-        remote_url: 'https://artifacts.alfresco.com/nexus/content/groups/private/'
-        remote_username: 'secret-username'
-        remote_password: "{{ vault_alfresco_private_password }}"
+      #- name: alfresco
+      #  remote_url: 'https://artifacts.alfresco.com/nexus/content/groups/private/'
+      #  remote_username: 'secret-username'
+      #  remote_password: "{{ vault_alfresco_private_password }}"
       - name: jboss
         remote_url: 'https://repository.jboss.org/nexus/content/groups/public-jboss/'
       - name: vaadin-addons
