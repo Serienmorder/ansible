@@ -2,7 +2,7 @@
 - name: Nexus
   hosts: nexus
   become: yes
-  tasks:
+  pre_tasks:
     - name: install rsync
       yum:
         name: rsync
