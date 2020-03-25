@@ -21,6 +21,8 @@
     nexus_config_yum: true
     nexus_ldap_realm: false
     nexus_delete_default_repos: true
+    nexus_nuget_api_key_realm: true
+    nexus_config_nuget: true
     nexus_privileges:
       - name: all-repos-read
         description: 'Read & Browse access to all repos'
@@ -96,6 +98,12 @@
         repodata_depth: 1
         strict_content_validation: true
         layout_policy: strict
+    nexus_repos_nuget_hosted:
+      - name: SAC
+        strict_content_validation: true
+      - name: Potato
+        strict_content_validation: true
+
   roles:
     
     - { role: geerlingguy.java, java_packages: java-1.8.0-openjdk  }
