@@ -2,8 +2,15 @@
 - name: Nexus
   hosts: nexus
   become: yes
-
-#TODO: Install RSync
+  tasks:
+    - name: install rsync
+      yum:
+        name: rsync
+        state: latest
+    - name: install httpd
+      yum:
+        name: httpd
+        state: latest
   vars:
     nexus_timezone: 'Canada/Eastern'
     current_nexus_admin_password: "Potato1234"

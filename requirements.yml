@@ -1,5 +1,5 @@
 - src: https://github.com/Serienmorder/nexus3-oss.git
-  version: fix/enabled-script
+  version: master
   name: sonatype
 
 - src: geerlingguy.java
