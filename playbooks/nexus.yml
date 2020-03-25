@@ -18,6 +18,7 @@
     nexus_admin_password: "Potato1234"
     nexus_public_hostname: 'nexus.vm'
     httpd_setup_enable: false
+    nexus_config_yum: true
     nexus_ldap_realm: false
     nexus_delete_default_repos: true
     nexus_privileges:
