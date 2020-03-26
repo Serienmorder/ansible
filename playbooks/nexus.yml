@@ -11,13 +11,14 @@
       yum:
         name: httpd
         state: latest
-    - name: Copy installation to target
-      copy:
-        src: /home/dave/nexus-{{nexus_version}}-unix.tar.gz
-        dest: '{{nexus_download_dir}}/nexus-{{nexus_version}}-unix.tar.gz'
+# These are commented out so I continually get the latest version. Other than that
+#    - name: Copy installation to target
+#      copy:
+#        src: /home/dave/nexus-{{nexus_version}}-unix.tar.gz
+#        dest: '{{nexus_download_dir}}/nexus-{{nexus_version}}-unix.tar.gz'
   vars:
-    nexus_download_dir: '/tmp'
-    nexus_version: 3.21.2-03
+#    nexus_download_dir: '/tmp'
+#    nexus_version: 3.21.2-03
     nexus_delete_default_blobstore: true
     nexus_timezone: 'America/Denver'
     current_nexus_admin_password: "Potato1234"
