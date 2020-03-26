@@ -97,6 +97,7 @@
         repodata_depth: 1
         strict_content_validation: true
         layout_policy: strict
+        blob_store: "{{nexus_blobstores.name}}"
       - name: RHEL8
         repodata_depth: 1
         strict_content_validation: true
