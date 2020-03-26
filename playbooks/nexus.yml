@@ -13,10 +13,11 @@
         state: latest
     - name: Copy installation to target
       copy:
-        src: /home/dave/nexus-3.21.2-03-unix.tar.gz
-        dest: '{{nexus_download_dir}}/nexus-3.21.2-03-unix.tar.gz.'
+        src: /home/dave/nexus-{{nexus_version}}-unix.tar.gz
+        dest: '{{nexus_download_dir}}/nexus-{{nexus_version}}-unix.tar.gz.'
   vars:
     nexus_download_dir: '/tmp'
+    nexus_version: 3.21.2-03
     nexus_delete_default_blobstore: true
     nexus_timezone: 'America/Denver'
     current_nexus_admin_password: "Potato1234"
