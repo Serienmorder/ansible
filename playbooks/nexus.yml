@@ -14,7 +14,7 @@
     - name: Copy installation to target
       copy:
         src: /home/dave/nexus-3.21.2-03-unix.tar.gz
-        dest: '{{nexus_download_dir}}/nexus-3.21.2-03-unix.tar.gz.dave'
+        dest: '{{nexus_download_dir}}/nexus-3.21.2-03-unix.tar.gz.'
   vars:
     nexus_download_dir: '/tmp'
     nexus_delete_default_blobstore: true
