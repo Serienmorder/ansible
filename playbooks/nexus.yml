@@ -14,7 +14,7 @@
     - name: Copy installation to target
       copy:
         src: /home/dave/nexus-{{nexus_version}}-unix.tar.gz
-        dest: '{{nexus_download_dir}}/nexus-{{nexus_version}}-unix.tar.gz.'
+        dest: '{{nexus_download_dir}}/nexus-{{nexus_version}}-unix.tar.gz'
   vars:
     nexus_download_dir: '/tmp'
     nexus_version: 3.21.2-03
