@@ -4,4 +4,4 @@
     - name: include Get Tasks
       include_role: 
         name: sonatype
-        tasks_from: tests.yl
+        tasks_from: tests.yml
