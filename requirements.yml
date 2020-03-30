@@ -1,5 +1,5 @@
 - src: https://github.com/Serienmorder/nexus3-oss.git
-  version: master
-  name: feat/api-management
+  version: feat/api-management
+  name: sonatype
 
 - src: geerlingguy.java
