@@ -19,6 +19,7 @@
   vars:
 #    nexus_download_dir: '/tmp'
 #    nexus_version: 3.21.2-03
+    nexus_upgrade: true
     nexus_delete_default_blobstore: true
     nexus_timezone: 'America/Denver'
     current_nexus_admin_password: "Potato1234"
