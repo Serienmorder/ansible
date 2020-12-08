@@ -1,0 +1,7 @@
+- hosts: 192.168.11.140
+  become: yes
+  tasks:
+    - include_role:
+        name: geerlingguy.java
+      vars:
+        java_packages: java-11-openjdk

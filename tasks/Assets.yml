@@ -1,0 +1,33 @@
+---
+- name: Get all items  
+  nexus_assets_api:
+    url: http://10.10.3.144:8081
+    endpoint_version: 'v1'
+    url_username: 'admin'
+    url_password: 'Potato1234'
+    headers: 
+      accept: "application/json"
+    force_basic_auth: yes
+    repository_name: 'RHEL7'
+- name: Destroy item  
+  nexus_assets_api:
+    url: http://10.10.3.144:8081
+    endpoint_version: 'v1'
+    asset_id: 'UkhFTDc6N2Y2Mzc5ZDMyZjhkZDc4ZjE5YzkyNzdkMWMxZjRkMzA'
+    url_username: 'admin'
+    url_password: 'Potato1234'
+    headers: 
+      accept: "application/json"
+    force_basic_auth: yes
+    method: DELETE
+- name: Validate failure if unable to locate asset 
+  nexus_assets_api:
+    url: http://10.10.3.144:8081
+    endpoint_version: 'v1'
+    asset_id: 'UkhFTDc6N2Y2Mzc5ZDMyZjhkZDc4ZjE5YzkyNzdkMWMxZjRkMzA'
+    url_username: 'admin'
+    url_password: 'Potato1234'
+    headers: 
+      accept: "application/json"
+    force_basic_auth: yes
+    method: DELETE

@@ -1,0 +1,12 @@
+- name: test my new module
+  hosts: 127.0.0.1
+  tasks:
+    #- include_tasks: tasks/Assets.yml
+    #- include_tasks: tasks/Blobstores.yml
+    #- include_tasks: tasks/Components.yml
+    #- include_tasks: tasks/Email.yml
+    #- include_tasks: tasks/Repositories.yml
+    - include_tasks: tasks/Scripts.yml
+    
+    
+    

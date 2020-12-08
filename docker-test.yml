@@ -1,0 +1,10 @@
+- hosts: 192.168.11.140
+  become: yes
+  roles:
+    - role: ericsysmin.docker.docker
+      vars:
+        docker_users:
+          - dave
+        docker_insecure_registries: "[10.10.3.144:9081]"
+        docker_edition: 'ce'
+        docker_registry_mirrors: "[10.10.3.144:9081]"

@@ -1,0 +1,12 @@
+---
+- hosts: 192.168.11.140
+  tasks:  
+    - name: Check artifactory version
+      uri: 
+        url: "http://192.168.11.140/artifactory/api/system/version"
+        url_username: "admin"
+        url_password: "potato1234"
+      register: artifactory_installed_version
+    - name: Debug
+      debug:
+        var: "{{ artifactory_installed_version }}"

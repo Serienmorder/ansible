@@ -1,0 +1,75 @@
+---
+- hosts: 192.168.224.128
+  become: yes
+  tasks:
+    - name: Setup local postgres Artifactory as Yum repo
+      yum_repository:
+        baseurl: http://admin:AP9ceD7ZPeurNMD1zqF4pxedLui@192.168.224.129/artifactory/postgresmirror/
+        enabled: yes
+        gpgcheck: no
+        name: local
+        description: Artifactory local postgres
+      become: yes
+    - name: Setup Artifactory as Yum repo
+      yum_repository:
+        baseurl: http://admin:AP9ceD7ZPeurNMD1zqF4pxedLui@192.168.224.129/artifactory/epel-mirror-8/
+        enabled: yes
+        gpgcheck: no
+        name: epel-mirror-8
+        description: Artifactory epel yum
+      become: yes
+    - name: Setup Artifactory AppStream as Yum repo
+      yum_repository:
+        baseurl: http://admin:AP9ceD7ZPeurNMD1zqF4pxedLui@192.168.224.129/artifactory/centos-mirror/8.2.2004/AppStream/x86_64/os/
+        enabled: yes
+        gpgcheck: no
+        name: appstream
+        description: Artifactory appstream yum
+      become: yes
+    - name: Setup Artifactory BaseOS as Yum repo
+      yum_repository:
+        baseurl: http://admin:AP9ceD7ZPeurNMD1zqF4pxedLui@192.168.224.129/artifactory/centos-mirror/8.2.2004/BaseOS/x86_64/os/
+        enabled: yes
+        gpgcheck: no
+        name: baseos
+        description: artifactory yum baseos
+      become: yes
+    - include_role:
+        name: geerlingguy.postgresql
+      vars:
+        postgresql_enablerepo: "http://admin:AP9ceD7ZPeurNMD1zqF4pxedLui@192.168.224.129/artifactory/epel-mirror-8/"
+        postgresql_python_library: python3-psycopg2
+        postgresql_hba_entries:
+          - { type: local, database: all, user: postgres, auth_method: peer }
+          - { type: local, database: all, user: all, auth_method: md5 }
+          - { type: host, database: all, user: all, address: '127.0.0.1/32', auth_method: md5 }
+          - { type: host, database: all, user: all, address: '::1/128', auth_method: md5 }
+        postgresql_databases:
+          - name: xray
+            state: present
+            owner: xray
+        postgresql_users:
+          - name: xray
+            password: xray
+            role: superuser
+            db: xray
+        postgres_users_no_log: false
+    - include_role:
+        name: jfrog.installers.xray
+      vars:
+        xray_tar:  http://admin:AP9ceD7ZPeurNMD1zqF4pxedLui@192.168.224.129/artifactory/generic/jfrog-xray-3.10.3-linux.tar.gz
+        xray_untar_home: "{{ jfrog_home_directory }}/jfrog-xray-{{ xray_version }}-linux"
+        server_name: artifactory
+        master_key: 8ded02aee749c2e9e25eae347724cee9
+        join_key: 91c0ec1967a15761b330e5177dd89d70
+        web_method: http
+        jfrog_url: http://192.168.224.129:8082
+        url_port: 80
+        artifactory_app_username: admin
+        artifactory_app_user_pass: potato1234
+        xray_version: 3.10.3
+        db_type: postgresql
+        db_url: postgres://127.0.0.1:5432/xray?sslmode=disable
+        db_user: 'xray'
+        db_password: 'dd31ca.aesgcm128.3dgreYHtKqCYD2a86KZUQRvkkFFcgx9U6N9EnMoQ-uU'
+        db_driver: org.postgresql.Driver

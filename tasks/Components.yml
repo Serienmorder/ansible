@@ -1,0 +1,83 @@
+---
+- name: Test Get failure
+  nexus_component_api:
+    url: http://10.10.3.144:8081
+    endpoint_version: 'v1'
+    url_username: 'admin'
+    url_password: 'Potato1234'
+    headers: 
+      accept: "application/json"
+    force_basic_auth: yes
+    validate_certs: false
+    method: GET
+  register: output
+  failed_when: output.msg != 'Name or ID must be defined for GET'
+- name: Get Component by repo
+  nexus_component_api:
+    url: http://10.10.3.144:8081
+    endpoint_version: 'v1'
+    url_username: 'admin'
+    url_password: 'Potato1234'
+    headers: 
+      accept: "application/json"
+    force_basic_auth: yes
+    validate_certs: false
+    method: GET
+    component_info:
+      repository: 'RHEL7'
+- name: Get Component by ID
+  nexus_component_api:
+    url: http://10.10.3.144:8081
+    endpoint_version: 'v1'
+    url_username: 'admin'
+    url_password: 'Potato1234'
+    headers: 
+      accept: "application/json"
+    force_basic_auth: yes
+    validate_certs: false
+    method: GET
+    component_info:
+      id: 'UkhFTDc6OTNiOWI5ZWI5YTdlY2IwNjMxNDNiNDFiMjY2NDQzYjQ'
+- name: Get single object back with repo query
+  nexus_component_api:
+    url: http://10.10.3.144:8081
+    endpoint_version: 'v1'
+    url_username: 'admin'
+    url_password: 'Potato1234'
+    headers: 
+      accept: "application/json"
+    force_basic_auth: yes
+    validate_certs: false
+    method: GET
+    component_info:
+      repository: 'RHEL7'
+      name: 'macromilter'
+#- name: Delete all vs code items
+#  nexus_component_api:
+#    url: http://10.10.3.144:8081
+#    endpoint_version: 'v1'
+#    url_username: 'admin'
+#    url_password: 'Potato1234'
+#    headers: 
+#      accept: "application/json"
+#    force_basic_auth: yes
+#    validate_certs: false
+#    method: DELETE
+#    component_info:
+#      repository: 'RHEL7'
+#      name: 'code'
+#- name: Delete single vs code component
+#  nexus_component_api:
+#    url: http://10.10.3.144:8081
+#    endpoint_version: 'v1'
+#    url_username: 'admin'
+#    url_password: 'Potato1234'
+#    headers: 
+#      accept: "application/json"
+#    force_basic_auth: yes
+#    validate_certs: false
+#    method: DELETE
+#    component_info:
+#      repository: 'RHEL7'
+#      name: 'code'
+#      version: 1.32.3-1552607091.el7

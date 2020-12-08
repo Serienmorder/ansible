@@ -1,0 +1,22 @@
+---
+- hosts: 192.168.11.140
+  tasks:  
+    - include_role:
+        name: jfrog.installers.artifactory
+      vars:
+        server_name: artifactory
+        db_type: derby
+        db_driver:
+        db_url:
+        db_user:
+        db_password:
+        artifactory_ha_enabled: false
+        master_key: 8ded02aee749c2e9e25eae347724cee9
+        join_key: 91c0ec1967a15761b330e5177dd89d70
+        web_method: http
+        artifactory_server_url: 192.168.11.140
+        url_port: 80
+        artifactory_app_username: admin
+        artifactory_app_user_pass: potato1234
+        artifactory_version: 7.10.2
+        artifactory_upgrade_only: true
